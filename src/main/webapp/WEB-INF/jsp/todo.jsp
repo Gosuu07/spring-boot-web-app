@@ -1,0 +1,25 @@
+<%@ include file="common/header.jspf"%>
+<%@ include file="common/navigation.jspf"%>
+<div class="container">
+	<%-- <font color="red">${errorMessage}</font> --%>
+	<form:form method="post" modelAttribute="todo">
+		<form:hidden path="id" />
+		<fieldset class="form-group">
+			<form:label path="desc">Description:</form:label>
+			<form:input path="desc" type="text" class="form-control"
+				required="required" />
+			<!-- HTML5 VALIDATION(client side validation)-->
+			<form:errors path="desc" cssClass="text-warning"></form:errors>
+		</fieldset>
+
+		<fieldset class="form-group">
+			<form:label path="targetDate">Target Date</form:label>
+			<form:input path="targetDate" type="text" class="form-control"
+				required="required" />
+			<!-- HTML5 VALIDATION(client side validation)-->
+			<form:errors path="targetDate" cssClass="text-warning"></form:errors>
+		</fieldset>
+		<button type="submit" class="btn btn-success">ADD</button>
+	</form:form>
+</div>
+<%@ include file="common/footer.jspf"%>
