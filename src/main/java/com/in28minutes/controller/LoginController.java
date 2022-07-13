@@ -19,23 +19,24 @@ public class LoginController {
 	@Autowired
 	LoginService service ;
 	//this is to map the /login (url) to this handler method
-	@RequestMapping(value="/login",method = RequestMethod.GET)										
-	public String loginMessage() {	
-		return "login";
-	}
-	
-	@RequestMapping(value="/login",method = RequestMethod.POST)										
-	public String welcomeMessage(ModelMap model,@RequestParam String name,@RequestParam String pwd) {
-		
-		boolean isValid =service.validate(name, pwd);
-		if(!isValid) {
-			model.put("errorMessage", "INVALID CREDENTIALS");
-			return "login";
-		}
-		
-		model.put("name2", name);
-		model.put("pwd2", pwd);
-		
+	@RequestMapping(value="/",method = RequestMethod.GET)										
+	public String showLoginMessage(ModelMap model) {	
+		model.put("name2", "Gosu");
 		return "welcome";
 	}
+	
+//	@RequestMapping(value="/login",method = RequestMethod.POST)										
+//	public String welcomeMessage(ModelMap model,@RequestParam String name,@RequestParam String pwd) {
+//		
+//		boolean isValid =service.validate(name, pwd);
+//		if(!isValid) {
+//			model.put("errorMessage", "INVALID CREDENTIALS");
+//			return "login";
+//		}
+//		
+//		model.put("name2", name);
+//		model.put("pwd2", pwd);
+//		
+//		return "welcome";
+//	}
 }
